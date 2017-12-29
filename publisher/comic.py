@@ -38,7 +38,7 @@ class Publisher:
     def digital_hi(self, FILE_LIST, PUBLISH_FOLDER):
         print('Running Digital')
         self.dir_create(PUBLISH_FOLDER)
-        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -dDEVICEWIDTHPOINTS=504 -dDEVICEHEIGHTPOINTS=720           -dFIXEDMEDIA           -dPDFFitPage           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-hi.pdf           -f '+FILE_LIST)
+        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -dDEVICEWIDTHPOINTS=504 -dDEVICEHEIGHTPOINTS=738           -dFIXEDMEDIA           -dPDFFitPage           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-hi.pdf           -f '+FILE_LIST)
         print(self.PROJ_NAME+': PDF for Digital')
     
     #CreateSpace
@@ -47,7 +47,7 @@ class Publisher:
         print(self.PROJ_NAME+': Running CreateSpace')
         self.dir_create(PUBLISH_FOLDER)
         self.digital_hi(FILE_LIST, self.temp_folder)
-        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.print.pdf           -dDEVICEWIDTHPOINTS=513 -dDEVICEHEIGHTPOINTS=720           -dFIXEDMEDIA           -dPDFFitPage           -c "<< /CurrPageNum 1 def /Install { /CurrPageNum CurrPageNum 1 add def              CurrPageNum 2 mod 1 eq {-9 0 translate} {9 0 translate} ifelse } bind  >> setpagedevice"           -f '+self.temp_folder+'/'+self.PROJ_NAME+'.digi-hi.pdf')
+        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.print.pdf           -dDEVICEWIDTHPOINTS=513 -dDEVICEHEIGHTPOINTS=738           -dFIXEDMEDIA           -dPDFFitPage           -c "<< /CurrPageNum 1 def /Install { /CurrPageNum CurrPageNum 1 add def              CurrPageNum 2 mod 1 eq {-9 0 translate} {9 0 translate} ifelse } bind  >> setpagedevice"           -f '+self.temp_folder+'/'+self.PROJ_NAME+'.digi-hi.pdf')
         os.remove(self.temp_folder+'/'+self.PROJ_NAME+'.digi-hi.pdf')
         print(self.PROJ_NAME+': PDF for CreateSpace')
 

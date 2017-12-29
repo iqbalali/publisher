@@ -6,13 +6,13 @@ Publisher is a Python package for publishing comics from illustrator files. It u
 
 * Download and unzip
 
-* Open a terminal, cd to the directory and then inside the folder (as always, it is advisable to use a virtual environment)::
+* Open a terminal, `cd` to the directory and then inside the folder (as always, it is advisable to use a virtual environment):
 
-    pip install .
+    > pip install .
 
 * To check that the package has been installed, in the Python shell type::
 
-    from publisher import *
+    > from publisher import *
 
 * If everything works correctly, the package will be imported without errors.
 

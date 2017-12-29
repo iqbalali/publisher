@@ -19,9 +19,8 @@ class Publisher:
         self.temp_folder  = homedir+"/Downloads/temp/"
         self.dir_create(self.temp_folder)
         
-    def tester(self, FILE_LIST_PRINT):
-        print(self.PROJ_NAME)
-        print(FILE_LIST_PRINT)
+    def version(self):
+        print("0.1.1")
 
     def dir_create(self, directory):
         if not os.path.exists(directory):

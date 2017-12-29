@@ -82,6 +82,22 @@ mycomic.digital_lo(source_files, output_dir)
 
 ```
 
+Full example:
+
+```python
+from publisher import *
+
+proj_name = "My-Super-Book"
+mycomic = Publisher(proj_name)
+
+source_files = "/path/to/files/page1.ai /path/to/files/page2.ai"
+output_dir = "/path/to/output"
+
+mycomic.digital_hi(source_files, output_dir)
+mycomic.printer(source_files, output_dir)
+mycomic.digital_lo(source_files, output_dir)
+
+```
 
 
 ## Limitations

@@ -3,7 +3,7 @@
 
 # ## 1. Load the required functions
 
-# In[5]:
+# In[21]:
 
 import os
 class Publisher:
@@ -37,9 +37,15 @@ class Publisher:
     def digital_hi(self, FILE_LIST, PUBLISH_FOLDER):
         print('Running Digital')
         self.dir_create(PUBLISH_FOLDER)
-        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -dDEVICEWIDTHPOINTS=504 -dDEVICEHEIGHTPOINTS=738           -dFIXEDMEDIA           -dPDFFitPage           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-hi.pdf           -f '+FILE_LIST)
+        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-hi.pdf           -f '+FILE_LIST)
         print(self.PROJ_NAME+': PDF for Digital')
     
+    def digital_hi_new(self, FILE_LIST, PUBLISH_FOLDER):
+        print('Running Digital')
+        self.dir_create(PUBLISH_FOLDER)
+        os.system('gs           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-hi.pdf           -f '+FILE_LIST)
+        print(self.PROJ_NAME+': PDF for Digital')
+        
     #CreateSpace
     def printer(self, FILE_LIST, PUBLISH_FOLDER):
         print("File list: "+FILE_LIST)
@@ -70,4 +76,14 @@ class Publisher:
             if file.endswith(".png"):
                 print('Site images published to: '+website_folder+self.PROJ_NAME.lower()+'/'+file)
         upload_images()
+        
+    def front_cover(self, SRC_FILE, PUBLISH_FOLDER):
+        self.dir_create(PUBLISH_FOLDER)
+        
+    
+    def cover(self, SRC_FILE, PUBLISH_FOLDER, COVER_OFFSET):
+        self.dir_create(PUBLISH_FOLDER)
+        os.system('gs           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cs_cover.pdf           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -f '+SRC_FILE)
+        
+        os.system('gs           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.front.pdf           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -dFIXEDMEDIA           -dDEVICEWIDTHPOINTS=504              -dDEVICEHEIGHTPOINTS=738             -c "<</PageOffset [-'+str(513+COVER_OFFSET)+' 0]>> setpagedevice"           -f '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cs_cover.pdf')
 

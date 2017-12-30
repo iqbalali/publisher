@@ -182,7 +182,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -223,13 +223,20 @@ div#notebook {
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;gs </span><span class="se">\</span>
 <span class="s1">          -sDEVICE=pdfwrite </span><span class="se">\</span>
 <span class="s1">          -dPDFSETTINGS=/printer </span><span class="se">\</span>
-<span class="s1">          -dDEVICEWIDTHPOINTS=504 -dDEVICEHEIGHTPOINTS=738 </span><span class="se">\</span>
-<span class="s1">          -dFIXEDMEDIA </span><span class="se">\</span>
-<span class="s1">          -dPDFFitPage </span><span class="se">\</span>
 <span class="s1">          -o &#39;</span><span class="o">+</span><span class="n">PUBLISH_FOLDER</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;.digi-hi.pdf </span><span class="se">\</span>
 <span class="s1">          -f &#39;</span><span class="o">+</span><span class="n">FILE_LIST</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;: PDF for Digital&#39;</span><span class="p">)</span>
     
+    <span class="k">def</span> <span class="nf">digital_hi_new</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FILE_LIST</span><span class="p">,</span> <span class="n">PUBLISH_FOLDER</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running Digital&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir_create</span><span class="p">(</span><span class="n">PUBLISH_FOLDER</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;gs </span><span class="se">\</span>
+<span class="s1">          -sDEVICE=pdfwrite </span><span class="se">\</span>
+<span class="s1">          -dPDFSETTINGS=/printer </span><span class="se">\</span>
+<span class="s1">          -o &#39;</span><span class="o">+</span><span class="n">PUBLISH_FOLDER</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;.digi-hi.pdf </span><span class="se">\</span>
+<span class="s1">          -f &#39;</span><span class="o">+</span><span class="n">FILE_LIST</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;: PDF for Digital&#39;</span><span class="p">)</span>
+        
     <span class="c1">#CreateSpace</span>
     <span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FILE_LIST</span><span class="p">,</span> <span class="n">PUBLISH_FOLDER</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File list: &quot;</span><span class="o">+</span><span class="n">FILE_LIST</span><span class="p">)</span>
@@ -276,6 +283,28 @@ div#notebook {
             <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.png&quot;</span><span class="p">):</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Site images published to: &#39;</span><span class="o">+</span><span class="n">website_folder</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">file</span><span class="p">)</span>
         <span class="n">upload_images</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">front_cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SRC_FILE</span><span class="p">,</span> <span class="n">PUBLISH_FOLDER</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir_create</span><span class="p">(</span><span class="n">PUBLISH_FOLDER</span><span class="p">)</span>
+        
+    
+    <span class="k">def</span> <span class="nf">cover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">SRC_FILE</span><span class="p">,</span> <span class="n">PUBLISH_FOLDER</span><span class="p">,</span> <span class="n">COVER_OFFSET</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dir_create</span><span class="p">(</span><span class="n">PUBLISH_FOLDER</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;gs </span><span class="se">\</span>
+<span class="s1">          -o &#39;</span><span class="o">+</span><span class="n">PUBLISH_FOLDER</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;.cs_cover.pdf </span><span class="se">\</span>
+<span class="s1">          -sDEVICE=pdfwrite </span><span class="se">\</span>
+<span class="s1">          -dPDFSETTINGS=/printer </span><span class="se">\</span>
+<span class="s1">          -f &#39;</span><span class="o">+</span><span class="n">SRC_FILE</span><span class="p">)</span>
+        
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;gs </span><span class="se">\</span>
+<span class="s1">          -o &#39;</span><span class="o">+</span><span class="n">PUBLISH_FOLDER</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;.front.pdf </span><span class="se">\</span>
+<span class="s1">          -sDEVICE=pdfwrite </span><span class="se">\</span>
+<span class="s1">          -dPDFSETTINGS=/printer </span><span class="se">\</span>
+<span class="s1">          -dFIXEDMEDIA </span><span class="se">\</span>
+<span class="s1">          -dDEVICEWIDTHPOINTS=504    </span><span class="se">\</span>
+<span class="s1">          -dDEVICEHEIGHTPOINTS=738   </span><span class="se">\</span>
+<span class="s1">          -c &quot;&lt;&lt;/PageOffset [-&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="mi">513</span><span class="o">+</span><span class="n">COVER_OFFSET</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; 0]&gt;&gt; setpagedevice&quot; </span><span class="se">\</span>
+<span class="s1">          -f &#39;</span><span class="o">+</span><span class="n">PUBLISH_FOLDER</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">PROJ_NAME</span><span class="o">+</span><span class="s1">&#39;.cs_cover.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>

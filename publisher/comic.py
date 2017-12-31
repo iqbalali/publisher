@@ -31,7 +31,7 @@ class Publisher:
         self.dir_create(PUBLISH_FOLDER)
         os.system('gs           -sDEVICE=pdfwrite           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-lo.pdf           -f '+FILE_LIST)
         print(self.PROJ_NAME+': PDF for sharing')
-        self.cbz(PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-lo.pdf',PUBLISH_FOLDER)
+        #self.cbz(PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-lo.pdf',PUBLISH_FOLDER)
         
     #Digital Files
     def digital_hi(self, FILE_LIST, PUBLISH_FOLDER):

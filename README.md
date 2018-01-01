@@ -1,6 +1,15 @@
 # Publisher
 
-Publisher is a Python package for publishing comics from illustrator files. It uses ghostscript and imagemagick to help automate creating print-ready PDFs as well as PDFs ready for uploading to, for example, ComiXology.
+Publisher is a Python package for publishing comics from illustrator files. In a nutshell what it does is takes a list of illustrator files and creates a bunch of PDF documents, including:
+
+* Print ready PDF (currently CreateSpace only)
+* Digital PDF (high quality and low quality)
+* A directory of PNG files (image per page) ready to share on the web
+* CBZ
+* Takes a printer ready cover and extracts the front page to be added in front of digital fiels etc.
+
+
+It uses ghostscript and imagemagick.
 
 ## Installation
 

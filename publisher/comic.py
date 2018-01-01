@@ -26,6 +26,9 @@ class Publisher:
         if not os.path.exists(directory):
             os.makedirs(directory)
 
+    def create_pdf(self, **kwargs, **args):
+        print (args)
+
     #Sharing
     def digital_lo(self, FILE_LIST, PUBLISH_FOLDER):
         self.dir_create(PUBLISH_FOLDER)

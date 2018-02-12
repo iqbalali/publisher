@@ -3,7 +3,8 @@
 
 # ## 1. Load the required functions
 
-# In[21]:
+# In[50]:
+
 
 import os
 class Publisher:
@@ -18,6 +19,7 @@ class Publisher:
         #self.PUBLISH_FOLDER = PUBLISH_FOLDER
         self.temp_folder  = homedir+"/Downloads/temp/"
         self.dir_create(self.temp_folder)
+        print("Started",PROJ_NAME)
         
     def version(self):
         print("0.1.1")
@@ -26,8 +28,9 @@ class Publisher:
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-    def create_pdf(self, **kwargs, **args):
-        print (args)
+    def create_pdf(self, context):
+        for k, v in context.items():
+            print(k,v)
 
     #Sharing
     def digital_lo(self, FILE_LIST, PUBLISH_FOLDER):
@@ -89,4 +92,18 @@ class Publisher:
         os.system('gs           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cs_cover.pdf           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -f '+SRC_FILE)
         
         os.system('gs           -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.front.pdf           -sDEVICE=pdfwrite           -dPDFSETTINGS=/printer           -dFIXEDMEDIA           -dDEVICEWIDTHPOINTS=504              -dDEVICEHEIGHTPOINTS=738             -c "<</PageOffset [-'+str(513+COVER_OFFSET)+' 0]>> setpagedevice"           -f '+SRC_FILE)
+
+
+# In[51]:
+
+
+c = Publisher("Plantlife")
+
+context = {"src":"/some/path/input",
+           "out_dir":"/some/path/outpu",
+           "type":"print",#print, digi-hi, digi-lo,
+           "args":[""]
+          }
+c.create_pdf(context)
+
 

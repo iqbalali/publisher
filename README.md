@@ -18,6 +18,10 @@ It uses ghostscript and imagemagick.
 * Open a terminal, `cd` to the directory and then inside the folder (as always, it is advisable to use a virtual environment):
 
     > pip install .
+    
+Or upgrade...
+
+	> pip install . --upgrade
 
 * To check that the package has been installed, in the Python shell type::
 

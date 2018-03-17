@@ -97,9 +97,9 @@ class Publisher:
         
     def cover(self, SRC_FILE, PUBLISH_FOLDER, COVER_OFFSET):
         self.dir_create(PUBLISH_FOLDER)
-        os.system('gs -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cs_cover.pdf -sDEVICE=pdfwrite \
+        os.system('gs -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cover.createspace.pdf -sDEVICE=pdfwrite \
         -dPDFSETTINGS=/printer -f '+SRC_FILE)
-        os.system('gs -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.front.pdf -sDEVICE=pdfwrite \
+        os.system('gs -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cover.front.pdf -sDEVICE=pdfwrite \
         -dPDFSETTINGS=/printer -dFIXEDMEDIA -dDEVICEWIDTHPOINTS=504 \
         -dDEVICEHEIGHTPOINTS=738 -c "<</PageOffset [-'+str(513+COVER_OFFSET)+' 0]>> \
         setpagedevice" -f '+SRC_FILE)

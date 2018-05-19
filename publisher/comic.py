@@ -78,7 +78,7 @@ class Publisher:
         print(SRC_FILE)
         self.dir_create(PUBLISH_FOLDER)
         self.dir_create(PUBLISH_FOLDER+'/JPG')
-        os.system('gs -sDEVICE=png16m -dJPEGQ=100 -dQFactor=1.0 -r300 -dPDFFitPage -o '+PUBLISH_FOLDER+'/JPG/%03d.jpg -f '+SRC_FILE)
+        os.system('gs -sDEVICE=png16m -dJPEGQ=100 -dQFactor=1.0 -r300 -o '+PUBLISH_FOLDER+'/JPG/%03d.jpg -f '+SRC_FILE)
         print('Created CBZ in',PUBLISH_FOLDER+'/'+self.PROJ_NAME)
         os.system('mogrify -resize '+self.CBZ+'x'+self.CBZ+' '+PUBLISH_FOLDER+'/JPG/*.jpg')
         os.system('zip -r '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.cbz '+PUBLISH_FOLDER+'/JPG')

@@ -44,9 +44,20 @@ class Publisher:
             os.system('gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -o '+publish_file+' -f '+FILE_LIST)
             print('Digital-Hi created in',PUBLISH_FOLDER+'/'+self.PROJ_NAME)
     
-    def digital_hi_new(self, FILE_LIST, PUBLISH_FOLDER):
+    def digital_with_link(self, FILE_LIST, PUBLISH_FOLDER, LAST_PAGE):
         print('Running Digital')
         self.dir_create(PUBLISH_FOLDER)
+
+        '''
+         -c "[ /Rect [0 425 295 465]" 
+  -c "  /Border [0 0 2]"
+  -c "  /Color [.7 0 0]"
+  -c "  /Page 1"
+  -c "  /Action <</Subtype /URI"
+  -c "  /URI (http://stackoverflow.com/questions/4663409/creating-a-pdf-hyperlink-with-postscript/4674664#4674664)>>" ^
+  -c "  /Subtype /Link"
+  -c "  /ANN pdfmark" 
+        '''
         os.system('gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer -o '+PUBLISH_FOLDER+'/'+self.PROJ_NAME+'.digi-hi.pdf           -f '+FILE_LIST)
         print(': PDF for Digital')
         
